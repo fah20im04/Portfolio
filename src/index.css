@@ -1,0 +1,6 @@
+@import "tailwindcss";
+.active-navlink {
+  background-color: #3b82f6; /* Tailwind's blue-500 */
+  color: black;
+  font-weight: bold;
+}

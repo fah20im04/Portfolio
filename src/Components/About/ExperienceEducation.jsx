@@ -1,0 +1,163 @@
+import React from "react";
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa"; // Using briefcase for experience, cap for education
+
+// --- Data Definition ---
+const timelineItems = [
+  // EXPERIENCE (Left Column)
+  {
+    type: "experience",
+    year: "2025 - PRESENT",
+    title: "WEB DEVELOPER",
+    company: "FREELANCE",
+    description:
+      "I am a MERN Stack Developer with experience in building responsive web applications using React, Node.js, Express, and MongoDB.",
+  },
+  {
+    type: "experience",
+    year: "2025 - PRESENT",
+    title: "JUNIOR FRONTEND DEVELOPER",
+    company: "FREELANCE",
+    description:
+      "As a Junior Frontend Developer, I specialize in creating user-friendly interfaces using React and Tailwind CSS, ensuring optimal performance and responsiveness across devices.",
+  },
+
+  // EDUCATION (Right Column)
+  {
+    type: "education",
+    year: "2022",
+    title: "College",
+    company: "Beanibazar College & UNIVERSITY",
+    description:
+      "I completed my higher secondary education with a focus on science subjects, laying a strong foundation for my future studies in computer science and web development.",
+  },
+  {
+    type: "education",
+    year: "2024 - PRESENT",
+    title: "BACHELOR DEGREE",
+    company: "METROPOLITAN UNIVERSITY",
+    description:
+      "Pursuing a Bachelor's degree in Computer Science and Engineering, focusing on web development, software engineering, and data structures to enhance my technical skills and knowledge.",
+  },
+  {
+    type: "education",
+    year: "2025",
+    title: "Web Development Course",
+    company: "PROGRAMMING HERO",
+    description:
+      "Completed an intensive web development course covering HTML, CSS, JavaScript, and modern frameworks like React and Node.js to build dynamic web applications.",
+  },
+];
+
+// --- Timeline Item Sub-component ---
+const TimelineItem = ({ year, title, company, description, type }) => {
+  const Icon = type === "experience" ? FaBriefcase : FaGraduationCap;
+
+  return (
+    <div className="relative pl-12 pb-8 border-l border-gray-700/50 last:pb-0">
+      {/* Icon Circle */}
+      <div
+        className="
+          absolute -left-5 top-0 
+          w-10 h-10 
+          rounded-full 
+          bg-blue-500 
+          flex items-center 
+          justify-center 
+          shadow-lg 
+          shadow-blue-500/30
+        "
+      >
+        <Icon className="text-white text-lg" />
+      </div>
+
+      {/* Item Content */}
+      <div className="bg-gray-800 p-6 rounded-lg transition duration-300 hover:bg-gray-700/50">
+        {/* Year Badge */}
+        <span
+          className="
+          inline-block 
+          px-3 py-1 
+          text-xs 
+          font-semibold 
+          uppercase 
+          tracking-wider 
+          bg-gray-900 
+          text-white/70 
+          rounded-full 
+          mb-3
+        "
+        >
+          {year}
+        </span>
+
+        {/* Title and Company */}
+        <h4 className="text-xl font-bold uppercase text-white mb-2">
+          {title} —{" "}
+          <span className="text-white/70 font-semibold">{company}</span>
+        </h4>
+
+        {/* Description */}
+        <p className="text-sm font-light text-white/80 leading-relaxed">
+          {description}
+        </p>
+      </div>
+    </div>
+  );
+};
+
+// --- Main Experience & Education Component ---
+
+const ExperienceEducation = () => {
+  // Separate data into two columns for the timeline layout
+  const experienceItems = timelineItems.filter(
+    (item) => item.type === "experience"
+  );
+  const educationItems = timelineItems.filter(
+    (item) => item.type === "education"
+  );
+
+  return (
+    <section className="bg-gray-900 text-white p-4 md:p-12 lg:p-14">
+      {/* Title section (Matching previous components) */}
+      <header className="relative text-center mb-16 pt-8">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+          <h2 className="text-4xl md:text-5xl font-extrabold uppercase flex items-center whitespace-nowrap">
+            <span className="text-white">EXPERIENCE</span>
+            <span className="text-blue-500 ml-3">& EDUCATION</span>
+          </h2>
+        </div>
+      </header>
+
+      {/* Timeline Grid (Two columns for desktop, one for mobile) */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 max-w-6xl mx-auto">
+        {/* Left Column: Experience */}
+        <div>
+          {/* Optional: Column Title */}
+          <h3 className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 hidden lg:block">
+            Experience
+          </h3>
+          <div className="space-y-12">
+            {experienceItems.map((item, index) => (
+              <TimelineItem key={index} {...item} />
+            ))}
+          </div>
+        </div>
+
+        {/* Right Column: Education */}
+        <div>
+          {/* Optional: Column Title */}
+          <h3 className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 mt-16 lg:mt-0 hidden lg:block">
+            Education
+          </h3>
+          <div className="space-y-12">
+            {educationItems.map((item, index) => (
+              <TimelineItem key={index} {...item} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ExperienceEducation;
