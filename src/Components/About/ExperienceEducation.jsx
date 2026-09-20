@@ -1,9 +1,9 @@
 import React from "react";
-import { FaBriefcase, FaGraduationCap } from "react-icons/fa"; // Using briefcase for experience, cap for education
+import { FaBriefcase, FaGraduationCap } from "react-icons/fa";
+import Motion from "../reusable/Motion";
 
-// --- Data Definition ---
 const timelineItems = [
-  // EXPERIENCE (Left Column)
+  // EXPERIENCE
   {
     type: "experience",
     year: "2025 - PRESENT",
@@ -20,8 +20,16 @@ const timelineItems = [
     description:
       "As a Junior Frontend Developer, I specialize in creating user-friendly interfaces using React and Tailwind CSS, ensuring optimal performance and responsiveness across devices.",
   },
+  {
+    type: "experience",
+    year: "2026",
+    title: "JUNIOR FRONTEND DEVELOPER INTERN",
+    company: "Rise Together",
+    description:
+      "As a Junior Frontend Developer, I specialize in creating user-friendly interfaces using React and Tailwind CSS, ensuring optimal performance and responsiveness across devices.",
+  },
 
-  // EDUCATION (Right Column)
+  // EDUCATION
   {
     type: "education",
     year: "2022",
@@ -48,44 +56,59 @@ const timelineItems = [
   },
 ];
 
-// --- Timeline Item Sub-component ---
-const TimelineItem = ({ year, title, company, description, type }) => {
+// --- Timeline Item ---
+const TimelineItem = ({
+  year,
+  title,
+  company,
+  description,
+  type,
+  index,
+}) => {
   const Icon = type === "experience" ? FaBriefcase : FaGraduationCap;
 
   return (
-    <div className="relative pl-12 pb-8 border-l border-gray-700/50 last:pb-0">
+    <Motion
+      animation="fadeUp"
+      delay={index * 0.15}
+      duration={0.6}
+      className="relative pl-12 pb-8 border-l border-gray-700/50 last:pb-0"
+    >
       {/* Icon Circle */}
-      <div
+      <Motion
+        animation="scale"
+        delay={index * 0.15 + 0.15}
+        duration={0.4}
         className="
-          absolute -left-5 top-0 
-          w-10 h-10 
-          rounded-full 
-          bg-blue-500 
-          flex items-center 
-          justify-center 
-          shadow-lg 
+          absolute -left-5 top-0
+          w-10 h-10
+          rounded-full
+          bg-blue-500
+          flex items-center
+          justify-center
+          shadow-lg
           shadow-blue-500/30
         "
       >
         <Icon className="text-white text-lg" />
-      </div>
+      </Motion>
 
       {/* Item Content */}
       <div className="bg-gray-800 p-6 rounded-lg transition duration-300 hover:bg-gray-700/50">
         {/* Year Badge */}
         <span
           className="
-          inline-block 
-          px-3 py-1 
-          text-xs 
-          font-semibold 
-          uppercase 
-          tracking-wider 
-          bg-gray-900 
-          text-white/70 
-          rounded-full 
-          mb-3
-        "
+            inline-block
+            px-3 py-1
+            text-xs
+            font-semibold
+            uppercase
+            tracking-wider
+            bg-gray-900
+            text-white/70
+            rounded-full
+            mb-3
+          "
         >
           {year}
         </span>
@@ -93,7 +116,9 @@ const TimelineItem = ({ year, title, company, description, type }) => {
         {/* Title and Company */}
         <h4 className="text-xl font-bold uppercase text-white mb-2">
           {title} —{" "}
-          <span className="text-white/70 font-semibold">{company}</span>
+          <span className="text-white/70 font-semibold">
+            {company}
+          </span>
         </h4>
 
         {/* Description */}
@@ -101,57 +126,78 @@ const TimelineItem = ({ year, title, company, description, type }) => {
           {description}
         </p>
       </div>
-    </div>
+    </Motion>
   );
 };
 
-// --- Main Experience & Education Component ---
-
+// --- Main Component ---
 const ExperienceEducation = () => {
-  // Separate data into two columns for the timeline layout
   const experienceItems = timelineItems.filter(
     (item) => item.type === "experience"
   );
+
   const educationItems = timelineItems.filter(
     (item) => item.type === "education"
   );
 
   return (
     <section className="bg-gray-900 text-white p-4 md:p-12 lg:p-14">
-      {/* Title section (Matching previous components) */}
-      <header className="relative text-center mb-16 pt-8">
+      {/* Title */}
+      <Motion
+        animation="fadeUp"
+        duration={0.7}
+        className="relative text-center mb-16 pt-8"
+      >
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase flex items-center whitespace-nowrap">
             <span className="text-white">EXPERIENCE</span>
-            <span className="text-blue-500 ml-3">& EDUCATION</span>
+            <span className="text-blue-500 ml-3">
+              & EDUCATION
+            </span>
           </h2>
         </div>
-      </header>
+      </Motion>
 
-      {/* Timeline Grid (Two columns for desktop, one for mobile) */}
+      {/* Timeline Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-        {/* Left Column: Experience */}
+        {/* Experience */}
         <div>
-          {/* Optional: Column Title */}
-          <h3 className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 hidden lg:block">
+          <Motion
+            animation="fadeLeft"
+            duration={0.6}
+            className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 hidden lg:block"
+          >
             Experience
-          </h3>
+          </Motion>
+
           <div className="space-y-12">
             {experienceItems.map((item, index) => (
-              <TimelineItem key={index} {...item} />
+              <TimelineItem
+                key={index}
+                {...item}
+                index={index}
+              />
             ))}
           </div>
         </div>
 
-        {/* Right Column: Education */}
+        {/* Education */}
         <div>
-          {/* Optional: Column Title */}
-          <h3 className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 mt-16 lg:mt-0 hidden lg:block">
+          <Motion
+            animation="fadeRight"
+            duration={0.6}
+            className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 mt-16 lg:mt-0 hidden lg:block"
+          >
             Education
-          </h3>
+          </Motion>
+
           <div className="space-y-12">
             {educationItems.map((item, index) => (
-              <TimelineItem key={index} {...item} />
+              <TimelineItem
+                key={index}
+                {...item}
+                index={index}
+              />
             ))}
           </div>
         </div>

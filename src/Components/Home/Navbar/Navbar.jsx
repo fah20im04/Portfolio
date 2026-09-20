@@ -1,6 +1,7 @@
 import React from "react";
 import { DiAngularSimple } from "react-icons/di";
 import { FaHome } from "react-icons/fa";
+import { GiSkills } from "react-icons/gi";
 import { GrProjects } from "react-icons/gr";
 import { IoMdContacts } from "react-icons/io";
 import { MdOutlineMessage } from "react-icons/md";
@@ -47,6 +48,23 @@ const Navbar = () => {
           </div>
           <span className="ml-5 text-black font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
             ABOUT
+          </span>
+        </NavLink>
+      </div>
+      <div className="relative w-44 h-12">
+        <NavLink
+          to="/skills"
+          className={({ isActive }) =>
+            `${baseClasses} ${
+              isActive ? "bg-blue-500" : "bg-neutral-800 hover:bg-blue-500"
+            }`
+          }
+        >
+          <div className="w-12 h-12 flex items-center justify-center text-white group-hover:text-black text-2xl flex-shrink-0">
+            <GiSkills />
+          </div>
+          <span className="ml-5 text-black font-bold tracking-wide opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+            SKILLS
           </span>
         </NavLink>
       </div>

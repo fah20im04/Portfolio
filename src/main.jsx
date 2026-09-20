@@ -10,17 +10,19 @@ import Projects from "./Components/Projects/Projects.jsx";
 import Contact from "./Components/Contact/Contact.jsx";
 import Chat from "./Components/Chat/Chat.jsx";
 import RootLayout from "./Components/RootLayout/RootLayout.jsx";
+import MySkills from "./Components/About/MySkills.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />, // 👈 Navbar stays here
+    element: <RootLayout />, 
     children: [
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
       { path: "projects", element: <Projects /> },
       { path: "contact", element: <Contact /> },
       { path: "chat", element: <Chat /> },
+      { path: "skills", element: <MySkills /> },
     ],
   },
 ]);
