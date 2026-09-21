@@ -2,7 +2,6 @@ import React from "react";
 import {
   FaDownload,
   FaCheckCircle,
-  FaMapMarkedAlt
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 

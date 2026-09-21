@@ -10,24 +10,14 @@ const Home = () => {
 
   return (
     <section className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
-      <motion.div
-        initial={{ x: -200, y: -200, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
-        transition={{
-          duration: 1,
-          ease: "easeOut",
-        }}
+      <Motion 
+        animation="easeInOut"
         className="absolute top-0 left-0 w-64 h-64 bg-blue-500 -z-0 clip-path-polygon"
       />
 
-      <motion.div
-        initial={{ x: -200, y: 200, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
-        transition={{
-          duration: 1,
-          delay: 0.2,
-          ease: "easeOut",
-        }}
+      <Motion
+        animation="easeInOut"
+      
         className="absolute bottom-0 left-0 w-72 h-72 bg-blue-500 -z-0 clip-path-polygon-2"
       />
 

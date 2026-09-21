@@ -5,7 +5,6 @@ import Navbar from "../Home/Navbar/Navbar";
 const RootLayout = () => {
   return (
     <div className="relative min-h-screen">
-      {/* Navbar - fixed, always visible */}
       <Navbar />
 
       {/* Page Content */}

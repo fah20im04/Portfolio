@@ -4,7 +4,6 @@ import { FaHome } from "react-icons/fa";
 import { GiSkills } from "react-icons/gi";
 import { GrProjects } from "react-icons/gr";
 import { IoMdContacts } from "react-icons/io";
-import { MdOutlineMessage } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 const baseClasses =
