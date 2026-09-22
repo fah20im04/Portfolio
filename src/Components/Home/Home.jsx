@@ -119,60 +119,34 @@ const Home = () => {
 
       {/* About Modal */}
       <AnimatePresence>
-        {openAbout && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center"
-          >
-            {/* Modal Container */}
-            <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.9,
-                y: 30,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                scale: 0.9,
-                y: 30,
-              }}
-              transition={{
-                duration: 0.4,
-                ease: "easeOut",
-              }}
-              className="relative w-full h-full md:h-auto md:max-h-[90vh] md:w-[90%] lg:w-[80%] bg-neutral-900 rounded-none md:rounded-2xl overflow-y-auto"
-            >
-              {/* Close Button */}
-              <motion.button
-                onClick={() => setOpenAbout(false)}
-                whileHover={{
-                  scale: 1.1,
-                  rotate: 90,
-                }}
-                transition={{
-                  duration: 0.2,
-                }}
-                className="fixed md:absolute top-4 right-4 z-50 text-white text-2xl hover:text-red-400 transition"
-              >
-                ✕
-              </motion.button>
+      {openAbout && (
+    <Motion
+      animation="fade"
+      duration={0.3}
+      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center"
+    >
+      {/* Modal Container */}
+      <Motion
+        animation="scaleUp"
+        duration={0.4}
+        className="relative w-full h-full md:h-auto md:max-h-[90vh] md:w-[90%] lg:w-[80%] bg-neutral-900 rounded-none md:rounded-2xl overflow-y-auto"
+      >
+        {/* Close Button */}
+        <button
+          onClick={() => setOpenAbout(false)}
+          className="fixed md:absolute top-4 right-4 z-50 text-white text-2xl hover:text-red-400 transition"
+        >
+          ✕
+        </button>
 
-              {/* About Content */}
-              <div className="w-full min-h-screen md:min-h-0">
-                <About />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* About Content */}
+        <div className="w-full min-h-screen md:min-h-0">
+          <About />
+        </div>
+      </Motion>
+    </Motion>
+  )}
+</AnimatePresence>
     </section>
   );
 };

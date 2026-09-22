@@ -16,7 +16,7 @@ export const projectItems = [
     livelink: "https://biponiq.com/",
     description:
       "A production hotel booking platform with property management, authentication, booking functionality and an admin dashboard.",
-    tech: ["Next.js", "Node.js", "MongoDB", "Tailwind", "JWT"],
+    tech: ["Next.js", "Node.js", "postgresql", "Tailwind", "JWT"],
     gitrepo: "",
   },
 
@@ -30,10 +30,10 @@ export const projectItems = [
     livelink: "https://uparzo.com/",
     description:
       "A production e-commerce platform with product management, subscriptions, dashboards and authentication.",
-    tech: ["Next.js", "TypeScript", "MongoDB", "Tailwind"],
+    tech: ["Next.js", "TypeScript", "postgresql", "Tailwind"],
     gitrepo: "",
   },
-  
+
   // OTHER PROJECTS
 
   {

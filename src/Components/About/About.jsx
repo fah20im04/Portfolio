@@ -10,6 +10,7 @@ import MySkills from "./MySkills";
 import ExperienceEducation from "./ExperienceEducation";
 import Motion from "../reusable/Motion";
 import { leftInfo, rightInfo } from "../../data/About";
+import { CVbtn } from "./CVbtn";
 
 const About = () => {
 
@@ -92,7 +93,7 @@ const About = () => {
       </Motion>
 
       {/* ================= MAIN CONTENT ================= */}
-      <main>
+      <main className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row gap-8 lg:gap-28">
 
           {/* ================= PERSONAL INFO ================= */}
@@ -149,76 +150,7 @@ const About = () => {
         </div>
 
         {/* ================= DOWNLOAD CV ================= */}
-        <Motion
-          animation="fadeUp"
-          delay={0.3}
-          duration={0.6}
-          className="w-fit"
-        >
-          <motion.button
-            whileHover={{
-              scale: 1.03,
-            }}
-            whileTap={{
-              scale: 0.97,
-            }}
-            className="
-              relative
-              mt-12 md:mt-0
-              mx-auto md:mx-0
-              flex
-              items-center
-              h-14
-              w-74
-              max-w-xs
-              pr-4
-              rounded-full
-              bg-gray-900
-              border-2
-              border-blue-500
-              overflow-hidden
-              transition-shadow
-              duration-300
-              hover:shadow-lg
-              hover:shadow-blue-500/50
-            "
-          >
-            {/* Text */}
-            <span
-              className="
-                flex-grow
-                text-lg
-                font-bold
-                text-white
-                uppercase
-                tracking-wider
-                ml-6
-              "
-            >
-              Download CV
-            </span>
-
-            {/* Icon */}
-            <motion.div
-              whileHover={{
-                rotate: -10,
-              }}
-              className="
-                absolute
-                right-0
-                h-full
-                aspect-square
-                rounded-full
-                bg-blue-500
-                flex
-                items-center
-                justify-center
-              "
-            >
-              <FaDownload className="text-white text-xl" />
-            </motion.div>
-          </motion.button>
-        </Motion>
+       <CVbtn />
       </main>
 
       {/* ================= SKILLS & EXPERIENCE ================= */}
