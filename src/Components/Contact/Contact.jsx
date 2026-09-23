@@ -1,28 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaEnvelopeOpen,
- 
-} from "react-icons/fa";
+import { FaEnvelopeOpen } from "react-icons/fa";
 
 import Motion from "../reusable/Motion";
 import { contactInfo, socialLinks } from "../../data/Contact";
-;
-
-
 // --- Contact Info Item ---
-const ContactInfoItem = ({
-  icon: Icon,
-  title,
-  details,
-  index,
-}) => {
+const ContactInfoItem = ({ icon: Icon, title, details, index }) => {
   return (
-    <Motion
-      animation="fadeUp"
-      delay={index * 0.12}
-      duration={0.6}
-    >
+    <Motion animation="fadeUp" delay={index * 0.12} duration={0.6}>
       <motion.div
         whileHover={{ x: 5 }}
         transition={{ duration: 0.2 }}
@@ -53,13 +38,9 @@ const ContactInfoItem = ({
 
         {/* Text */}
         <div>
-          <h4 className="text-lg font-bold uppercase text-white/70">
-            {title}
-          </h4>
+          <h4 className="text-lg font-bold uppercase text-white/70">{title}</h4>
 
-          <p className="text-xl font-semibold text-white">
-            {details}
-          </p>
+          <p className="text-xl font-semibold text-white">{details}</p>
         </div>
       </motion.div>
     </Motion>
@@ -69,11 +50,7 @@ const ContactInfoItem = ({
 // --- Social Media ---
 const SocialMediaLinks = () => {
   return (
-    <Motion
-      animation="fadeUp"
-      delay={0.4}
-      duration={0.6}
-    >
+    <Motion animation="fadeUp" delay={0.4} duration={0.6}>
       <div className="flex space-x-4 pt-6">
         {socialLinks.map((link, index) => {
           const Icon = link.icon;
@@ -140,15 +117,12 @@ const ContactForm = () => {
     e.preventDefault();
 
     alert(
-      "Form submitted (Visual Only). Integrate a backend service to make this fully functional."
+      "Form submitted (Visual Only). Integrate a backend service to make this fully functional.",
     );
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-6"
-    >
+    <form onSubmit={handleSubmit} className="space-y-6">
       {/* Name + Email */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <motion.input
@@ -298,7 +272,6 @@ const ContactForm = () => {
 const Contact = () => {
   return (
     <section className="bg-gray-900 text-white p-4 md:p-12 lg:p-20">
-
       {/* ================= TITLE ================= */}
       <Motion
         animation="fadeUp"
@@ -337,20 +310,15 @@ const Contact = () => {
         {/* Main Title */}
         <div className="absolute top-3/5 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <h2 className="text-4xl md:text-6xl font-extrabold uppercase flex items-center whitespace-nowrap">
-            <span className="text-white">
-              GET IN
-            </span>
+            <span className="text-white">GET IN</span>
 
-            <span className="text-blue-500 ml-3">
-              TOUCH
-            </span>
+            <span className="text-blue-500 ml-3">TOUCH</span>
           </h2>
         </div>
       </Motion>
 
       {/* ================= CONTACT GRID ================= */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
-
         {/* ================= LEFT COLUMN ================= */}
         <Motion
           animation="fadeLeft"
@@ -362,19 +330,15 @@ const Contact = () => {
           </h3>
 
           <p className="text-white/80 leading-relaxed">
-            Feel free to get in touch with me. I am always open
-            to discussing new projects, creative ideas, or
-            opportunities to be part of your visions.
+            Feel free to get in touch with me. I am always open to discussing
+            new projects, creative ideas, or opportunities to be part of your
+            visions.
           </p>
 
           {/* Contact Info */}
           <div className="space-y-6 pt-4">
             {contactInfo.map((item, index) => (
-              <ContactInfoItem
-                key={index}
-                {...item}
-                index={index}
-              />
+              <ContactInfoItem key={index} {...item} index={index} />
             ))}
           </div>
 
@@ -394,19 +358,14 @@ const Contact = () => {
       </div>
 
       {/* ================= FOOTER ================= */}
-      <Motion
-        animation="fadeUp"
-        delay={0.2}
-        duration={0.6}
-      >
+      <Motion animation="fadeUp" delay={0.2} duration={0.6}>
         <footer className="mt-20 border-t border-white/10 pt-8 text-center">
           <p className="text-sm text-red-500">
             This is not a real contact form. I will work on it latter.
           </p>
 
           <p className="text-sm text-white/50 mt-4">
-            &copy; {new Date().getFullYear()} Fahim Dasik.
-            All rights reserved.
+            &copy; {new Date().getFullYear()} Fahim Dasik. All rights reserved.
           </p>
         </footer>
       </Motion>

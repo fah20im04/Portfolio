@@ -193,10 +193,13 @@ export default function Motion({
   once = true,
   amount = 0.2,
   className = "",
+  as = "div",
   ...props
 }) {
+  const MotionElement = motion[as];
+
   return (
-    <motion.div
+    <MotionElement
       className={className}
       variants={animations[animation]}
       initial="hidden"
@@ -213,6 +216,6 @@ export default function Motion({
       {...props}
     >
       {children}
-    </motion.div>
+    </MotionElement>
   );
 }

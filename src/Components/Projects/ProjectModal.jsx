@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 export const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
@@ -66,4 +66,3 @@ export const ProjectModal = ({ project, onClose }) => {
     </div>
   );
 };
-

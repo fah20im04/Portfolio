@@ -9,7 +9,6 @@ const statItems = [
 ];
 
 const StatCard = () => {
-  // --- Inner Card Component (Defined here to avoid props, but still map) ---
   const StatCard = ({ count, unit }) => (
     // Card container with dark background and subtle border
     <div

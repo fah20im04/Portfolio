@@ -12,7 +12,6 @@ export const ProjectCard = ({
 
   return (
     <div className="group relative overflow-hidden rounded-lg shadow-lg bg-gray-800 transition duration-300 hover:shadow-xl hover:shadow-blue-500/10">
-      
       {/* Live Badge */}
       {status === "Live" && (
         <div className="absolute top-3 left-3 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-sm border border-green-500/30">
@@ -43,7 +42,6 @@ export const ProjectCard = ({
 
       {/* Hover Overlay */}
       <div className="absolute inset-0 bg-blue-500/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-4">
-        
         {/* Category */}
         <span className="text-white text-xs uppercase tracking-widest mb-2 border-b border-white/50 pb-1">
           {category}
@@ -72,9 +70,7 @@ export const ProjectCard = ({
           {category}
         </span>
 
-        <h4 className="text-lg font-bold text-white truncate">
-          {title}
-        </h4>
+        <h4 className="text-lg font-bold text-white truncate">{title}</h4>
       </div>
     </div>
   );

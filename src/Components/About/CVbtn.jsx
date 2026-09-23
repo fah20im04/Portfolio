@@ -11,12 +11,7 @@ export const CVbtn = () => {
   return (
     <>
       <section>
-        <Motion
-          animation="fadeUp"
-          delay={0.3}
-          duration={0.6}
-          className="w-fit"
-        >
+        <Motion animation="fadeUp" delay={0.3} duration={0.6} className="w-fit">
           <button
             onClick={() => setShowCV(true)}
             className="

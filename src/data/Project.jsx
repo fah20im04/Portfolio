@@ -57,8 +57,7 @@ export const projectItems = [
     imagePlaceholder: hero,
     featured: false,
     status: "Personal Project",
-    livelink:
-      "https://heroappfahim-dasik-7da5e8.netlify.app/",
+    livelink: "https://heroappfahim-dasik-7da5e8.netlify.app/",
     description:
       "Modern hero section design with animations and responsive layout.",
     tech: ["React", "Tailwind", "daisyUI", "firebase"],
@@ -72,8 +71,7 @@ export const projectItems = [
     imagePlaceholder: civicconnect,
     featured: false,
     status: "Personal Project",
-    livelink:
-      "https://civicconnects-fahim-86f63a.netlify.app/",
+    livelink: "https://civicconnects-fahim-86f63a.netlify.app/",
     description:
       "A civic issue reporting platform with user roles and real-time updates.",
     tech: ["MERN", "JWT", "Stripe"],
@@ -87,8 +85,7 @@ export const projectItems = [
     imagePlaceholder: toytopia,
     featured: false,
     status: "Personal Project",
-    livelink:
-      "https://toytopiafahim-rabanadas-5e221e.netlify.app/",
+    livelink: "https://toytopiafahim-rabanadas-5e221e.netlify.app/",
     description:
       "E-commerce toy store with cart, filters and payment integration.",
     tech: ["React", "Firebase", "Stripe", "MongoDB"],

@@ -6,17 +6,12 @@ import { ProjectCard } from "./ProjectCard";
 const Projects = () => {
   const [selectedProject, setSelectedProject] = React.useState(null);
 
-  const productionProjects = projectItems.filter(
-    (project) => project.featured
-  );
+  const productionProjects = projectItems.filter((project) => project.featured);
 
-  const otherProjects = projectItems.filter(
-    (project) => !project.featured
-  );
+  const otherProjects = projectItems.filter((project) => !project.featured);
 
   return (
     <section className="bg-gray-900 text-white p-4 md:p-12 lg:p-20">
-
       {/* Title */}
       <header className="relative text-center mb-16 pt-8">
         <h1 className="text-8xl md:text-[10rem] font-extrabold text-white/5 uppercase tracking-widest leading-none">
@@ -36,7 +31,6 @@ const Projects = () => {
       ========================== */}
 
       <div className="max-w-6xl mx-auto mb-20">
-
         {/* Section Heading */}
         <div className="flex items-center gap-4 mb-8">
           <div className="h-px flex-1 bg-white/10" />
@@ -75,7 +69,6 @@ const Projects = () => {
       ========================== */}
 
       <div className="max-w-6xl mx-auto">
-
         {/* Section Heading */}
         <div className="flex items-center gap-4 mb-8">
           <div className="h-px flex-1 bg-white/10" />
@@ -90,13 +83,13 @@ const Projects = () => {
         {/* Other Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {otherProjects.map((item) => (
-           <ProjectCard
-                key={item.id}
-                category={item.category}
-                title={item.title}
-                imagePlaceholder={item.imagePlaceholder}
-                status={item.status}
-                onViewDetails={() => setSelectedProject(item)}
+            <ProjectCard
+              key={item.id}
+              category={item.category}
+              title={item.title}
+              imagePlaceholder={item.imagePlaceholder}
+              status={item.status}
+              onViewDetails={() => setSelectedProject(item)}
             />
           ))}
         </div>

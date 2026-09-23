@@ -57,14 +57,7 @@ const timelineItems = [
 ];
 
 // --- Timeline Item ---
-const TimelineItem = ({
-  year,
-  title,
-  company,
-  description,
-  type,
-  index,
-}) => {
+const TimelineItem = ({ year, title, company, description, type, index }) => {
   const Icon = type === "experience" ? FaBriefcase : FaGraduationCap;
 
   return (
@@ -116,9 +109,7 @@ const TimelineItem = ({
         {/* Title and Company */}
         <h4 className="text-xl font-bold uppercase text-white mb-2">
           {title} —{" "}
-          <span className="text-white/70 font-semibold">
-            {company}
-          </span>
+          <span className="text-white/70 font-semibold">{company}</span>
         </h4>
 
         {/* Description */}
@@ -133,11 +124,11 @@ const TimelineItem = ({
 // --- Main Component ---
 const ExperienceEducation = () => {
   const experienceItems = timelineItems.filter(
-    (item) => item.type === "experience"
+    (item) => item.type === "experience",
   );
 
   const educationItems = timelineItems.filter(
-    (item) => item.type === "education"
+    (item) => item.type === "education",
   );
 
   return (
@@ -151,9 +142,7 @@ const ExperienceEducation = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase flex items-center whitespace-nowrap">
             <span className="text-white">EXPERIENCE</span>
-            <span className="text-blue-500 ml-3">
-              & EDUCATION
-            </span>
+            <span className="text-blue-500 ml-3">& EDUCATION</span>
           </h2>
         </div>
       </Motion>
@@ -172,11 +161,7 @@ const ExperienceEducation = () => {
 
           <div className="space-y-12">
             {experienceItems.map((item, index) => (
-              <TimelineItem
-                key={index}
-                {...item}
-                index={index}
-              />
+              <TimelineItem key={index} {...item} index={index} />
             ))}
           </div>
         </div>
@@ -193,11 +178,7 @@ const ExperienceEducation = () => {
 
           <div className="space-y-12">
             {educationItems.map((item, index) => (
-              <TimelineItem
-                key={index}
-                {...item}
-                index={index}
-              />
+              <TimelineItem key={index} {...item} index={index} />
             ))}
           </div>
         </div>
