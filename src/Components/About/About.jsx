@@ -10,23 +10,69 @@ const About = () => {
   const InfoItem = ({ item, index }) => {
     return (
       <Motion animation="fadeLeft" delay={index * 0.08} duration={0.5}>
-        <li className="flex items-start sm:items-center">
-          <FaCheckCircle className="text-blue-500 mr-2 mt-1 sm:mt-0 shrink-0" />
+        <li
+          className="
+            flex
+            items-start
+            sm:items-center
+            p-3
+            sm:p-3.5
+            rounded-xl
+            bg-white/[0.035]
+            backdrop-blur-lg
+            border
+            border-white/[0.08]
+            hover:bg-white/[0.07]
+            hover:border-white/[0.15]
+            transition-all
+            duration-300
+          "
+        >
+          {/* Check Icon */}
+          <FaCheckCircle
+            className="
+              text-white/60
+              mr-2
+              mt-1
+              sm:mt-0
+              shrink-0
+            "
+          />
 
-          <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-2">
-            <span>{item.label}</span>
+          <div
+            className="
+              flex
+              flex-col
+              sm:flex-row
+              sm:items-center
+              sm:space-x-2
+              min-w-0
+            "
+          >
+            <span className="text-white/50">{item.label}</span>
 
             {item.link ? (
               <a
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-bold hover:text-blue-500 transition break-all"
+                className="
+                  font-bold
+                  text-white/90
+                  hover:text-white
+                  transition
+                  break-all
+                "
               >
                 {item.value}
               </a>
             ) : (
-              <span className={`font-bold ${item.className || "text-white"}`}>
+              <span
+                className={`
+                  font-bold
+                  ${item.className || "text-white/90"}
+                `}
+              >
                 {item.value}
               </span>
             )}
@@ -37,12 +83,68 @@ const About = () => {
   };
 
   return (
-    <section className="min-h-screen bg-gray-900 text-white px-4 sm:px-6 md:px-10 lg:px-12 py-12 sm:py-16 md:py-20 overflow-hidden">
+    <section
+      className="
+        relative
+        min-h-screen
+        w-full
+        bg-[#080808]
+        text-white
+        px-4
+        sm:px-6
+        md:px-10
+        lg:px-12
+        py-12
+        sm:py-16
+        md:py-20
+        overflow-hidden
+      "
+    >
+      {/* ================= BACKGROUND ================= */}
+
+      <div
+        className="
+          absolute
+          -top-40
+          -right-40
+          w-96
+          h-96
+          rounded-full
+          bg-white/[0.025]
+          blur-3xl
+          pointer-events-none
+        "
+      />
+
+      <div
+        className="
+          absolute
+          -bottom-40
+          -left-40
+          w-96
+          h-96
+          rounded-full
+          bg-white/[0.02]
+          blur-3xl
+          pointer-events-none
+        "
+      />
+
       {/* ================= TITLE ================= */}
+
       <Motion
         animation="fadeUp"
         duration={0.7}
-        className="relative text-center mb-10 sm:mb-14 md:mb-16 pt-4 sm:pt-8"
+        className="
+          relative
+          z-10
+          text-center
+          mb-10
+          sm:mb-14
+          md:mb-16
+          pt-4
+          sm:pt-8
+        "
       >
         {/* Background Title */}
         <Motion
@@ -55,7 +157,7 @@ const About = () => {
             md:text-[7rem]
             lg:text-[8rem]
             font-extrabold
-            text-white/5
+            text-white/[0.035]
             uppercase
             tracking-widest
             leading-none
@@ -92,30 +194,59 @@ const About = () => {
           >
             <span className="text-white">ABOUT</span>
 
-            <span className="text-blue-500 ml-2 sm:ml-3">ME</span>
+            <span className="text-white/40 ml-2 sm:ml-3">ME</span>
           </h2>
         </div>
       </Motion>
 
       {/* ================= MAIN CONTENT ================= */}
-      <main className="max-w-6xl mx-auto">
+
+      <main className="relative z-10 max-w-6xl mx-auto">
         <div
           className="
             flex
             flex-col
             lg:flex-row
-            gap-10
-            lg:gap-16
-            xl:gap-24
+            gap-8
+            lg:gap-10
+            xl:gap-14
           "
         >
           {/* ================= PERSONAL INFO ================= */}
+
           <Motion
             animation="fadeLeft"
             duration={0.7}
             className="w-full lg:flex-1"
           >
-            <div>
+            <div
+              className="
+                relative
+                p-5
+                sm:p-6
+                md:p-8
+                rounded-3xl
+                bg-white/[0.045]
+                backdrop-blur-2xl
+                border
+                border-white/[0.1]
+                shadow-[0_25px_60px_rgba(0,0,0,0.4)]
+                overflow-hidden
+              "
+            >
+              {/* Glass highlight */}
+              <div
+                className="
+                  absolute
+                  top-0
+                  left-8
+                  right-8
+                  h-px
+                  bg-white/20
+                  blur-sm
+                "
+              />
+
               <h3
                 className="
                   text-2xl
@@ -123,6 +254,7 @@ const About = () => {
                   font-bold
                   mb-6
                   sm:mb-8
+                  text-white/90
                 "
               >
                 PERSONAL INFOS
@@ -135,13 +267,13 @@ const About = () => {
                   sm:grid-cols-2
                   lg:grid-cols-1
                   xl:grid-cols-2
-                  gap-6
-                  xl:gap-12
+                  gap-3
+                  sm:gap-4
                 "
               >
                 {/* LEFT INFO */}
-                <div className="space-y-4">
-                  <ul className="space-y-5">
+                <div>
+                  <ul className="space-y-3">
                     {leftInfo.map((item, index) => (
                       <InfoItem key={index} item={item} index={index} />
                     ))}
@@ -149,8 +281,8 @@ const About = () => {
                 </div>
 
                 {/* RIGHT INFO */}
-                <div className="space-y-4">
-                  <ul className="space-y-5">
+                <div>
+                  <ul className="space-y-3">
                     {rightInfo.map((item, index) => (
                       <InfoItem key={index} item={item} index={index + 5} />
                     ))}
@@ -161,17 +293,49 @@ const About = () => {
           </Motion>
 
           {/* ================= STAT CARD ================= */}
+
           <Motion
             animation="fadeRight"
             delay={0.2}
             duration={0.7}
             className="w-full lg:flex-1"
           >
-            <StatCard />
+            <div
+              className="
+                relative
+                h-full
+                p-5
+                sm:p-6
+                md:p-8
+                rounded-3xl
+                bg-white/[0.045]
+                backdrop-blur-2xl
+                border
+                border-white/[0.1]
+                shadow-[0_25px_60px_rgba(0,0,0,0.4)]
+                overflow-hidden
+              "
+            >
+              {/* Glass highlight */}
+              <div
+                className="
+                  absolute
+                  top-0
+                  left-8
+                  right-8
+                  h-px
+                  bg-white/20
+                  blur-sm
+                "
+              />
+
+              <StatCard />
+            </div>
           </Motion>
         </div>
 
         {/* ================= CV BUTTON ================= */}
+
         <Motion
           animation="fadeUp"
           delay={0.3}

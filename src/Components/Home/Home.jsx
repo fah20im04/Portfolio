@@ -1,41 +1,97 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import fahim from "../../assets/fahim.png";
 import Navbar from "./Navbar/Navbar";
-import About from "../About/About.jsx";
 import Motion from "../reusable/Motion.jsx";
 import { FaArrowDown } from "react-icons/fa";
 
 const Home = () => {
-  const [openAbout, setOpenAbout] = useState(false);
-
   return (
-    <section className="min-h-screen bg-gray-900 text-white relative overflow-hidden">
-      {/* Top Left Shape */}
-      <Motion
-        animation="easeInOut"
-        className="absolute top-0 left-0 w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 bg-blue-500 -z-0 clip-path-polygon"
-      />
+    <section
+      className="
+        relative
+        min-h-screen
+        w-full
+        overflow-hidden
+        bg-[#080808]
+        text-white
+      "
+    >
+      {/* ================= GLASS BACKGROUND ================= */}
 
-      {/* Bottom Left Shape */}
-      <Motion
-        animation="easeInOut"
-        className="absolute bottom-0 left-0 w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 bg-blue-500 -z-0 clip-path-polygon-2"
-      />
-
-      {/* Main Content */}
+      {/* Soft white glass glow */}
       <div
         className="
-          relative z-10
-          max-w-7xl mx-auto
-          px-5 sm:px-8 md:px-10 lg:px-12
-          py-16 sm:py-20 md:py-24 lg:py-28
-          flex flex-col md:flex-row
+          absolute
+          -top-40
+          -left-40
+          w-96
+          h-96
+          rounded-full
+          bg-white/[0.035]
+          blur-3xl
+          pointer-events-none
+        "
+      />
+
+      <div
+        className="
+          absolute
+          -bottom-40
+          -right-40
+          w-96
+          h-96
+          rounded-full
+          bg-white/[0.025]
+          blur-3xl
+          pointer-events-none
+        "
+      />
+
+      {/* Subtle center glow */}
+      <div
+        className="
+          absolute
+          top-1/2
+          left-1/2
+          -translate-x-1/2
+          -translate-y-1/2
+          w-[500px]
+          h-[500px]
+          rounded-full
+          bg-white/[0.015]
+          blur-3xl
+          pointer-events-none
+        "
+      />
+
+      {/* ================= MAIN CONTENT ================= */}
+
+      <div
+        className="
+          relative
+          z-10
+          max-w-7xl
+          mx-auto
+          px-5
+          sm:px-8
+          md:px-10
+          lg:px-12
+          py-16
+          sm:py-20
+          md:py-24
+          lg:py-28
+          flex
+          flex-col
+          md:flex-row
           items-center
-          gap-10 sm:gap-12 lg:gap-16
+          gap-10
+          sm:gap-12
+          lg:gap-16
         "
       >
         {/* ================= IMAGE ================= */}
+
         <Motion
           animation="scale"
           duration={0.8}
@@ -55,30 +111,56 @@ const Home = () => {
               duration: 0.3,
             }}
             className="
-              rounded-3xl
-              overflow-hidden
-              shadow-2xl
+              relative
+              p-2
+              rounded-[2rem]
+              bg-white/[0.055]
+              backdrop-blur-2xl
+              border
+              border-white/[0.12]
+              shadow-[0_25px_60px_rgba(0,0,0,0.45)]
               w-[220px]
-              h-[280px]
               sm:w-[270px]
-              sm:h-[340px]
               md:w-[300px]
-              md:h-[380px]
               lg:w-[340px]
-              lg:h-[430px]
               xl:w-[360px]
-              xl:h-[450px]
             "
           >
+            {/* Glass highlight */}
+            <div
+              className="
+                absolute
+                top-0
+                left-1/2
+                -translate-x-1/2
+                w-2/3
+                h-px
+                bg-white/30
+                blur-sm
+              "
+            />
+
             <img
               src={fahim}
               alt="Fahim Ahmed"
-              className="w-full h-full object-cover"
+              className="
+                relative
+                w-full
+                h-[280px]
+                sm:h-[340px]
+                md:h-[380px]
+                lg:h-[430px]
+                xl:h-[450px]
+                object-cover
+                rounded-[1.5rem]
+                opacity-95
+              "
             />
           </motion.div>
         </Motion>
 
         {/* ================= TEXT ================= */}
+
         <div
           className="
             w-full
@@ -99,12 +181,26 @@ const Home = () => {
                 md:text-5xl
                 lg:text-6xl
                 font-extrabold
-                text-blue-500
+                text-white
                 leading-tight
               "
             >
               -I'M Fahim Ahmed
             </h1>
+          </Motion>
+
+          {/* Small glass line */}
+          <Motion animation="fadeLeft" delay={0.1} duration={0.6}>
+            <div
+              className="
+                mx-auto
+                md:mx-0
+                w-16
+                h-1
+                rounded-full
+                bg-white/30
+              "
+            />
           </Motion>
 
           {/* Job Title */}
@@ -115,7 +211,7 @@ const Home = () => {
                 sm:text-3xl
                 md:text-4xl
                 font-bold
-                text-white
+                text-white/90
               "
             >
               MERN Stack Developer
@@ -129,7 +225,7 @@ const Home = () => {
                 text-sm
                 sm:text-base
                 md:text-lg
-                text-neutral-300
+                text-white/55
                 max-w-xl
                 mx-auto
                 md:mx-0
@@ -144,23 +240,35 @@ const Home = () => {
 
           {/* Button */}
           <Motion animation="fadeUp" delay={0.45} duration={0.7}>
-            <div
+            <motion.div
+              whileHover={{
+                scale: 1.03,
+                backgroundColor: "rgba(255,255,255,0.12)",
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
+              transition={{
+                duration: 0.2,
+              }}
               className="
                 group
                 inline-flex
                 items-center
                 gap-3
                 sm:gap-4
-                bg-blue-500
-                text-black
-                font-semibold
                 px-5
                 sm:px-6
                 py-2.5
                 sm:py-3
                 rounded-full
-                hover:bg-blue-400
-                transition
+                bg-white/[0.06]
+                backdrop-blur-xl
+                border
+                border-white/[0.15]
+                shadow-[0_10px_30px_rgba(0,0,0,0.35)]
+                text-white
+                font-semibold
                 cursor-pointer
               "
             >
@@ -173,8 +281,10 @@ const Home = () => {
                   sm:w-10
                   sm:h-10
                   rounded-full
-                  bg-black
-                  text-blue-500
+                  bg-white/[0.1]
+                  border
+                  border-white/[0.15]
+                  text-white
                   flex
                   items-center
                   justify-center
@@ -184,24 +294,14 @@ const Home = () => {
               >
                 <FaArrowDown className="text-sm sm:text-base" />
               </span>
-            </div>
+            </motion.div>
           </Motion>
         </div>
       </div>
 
-      {/* Fixed Navigation */}
+      {/* ================= NAVBAR ================= */}
+
       <Navbar />
-
-      {/* Custom Clip Paths */}
-      <style jsx>{`
-        .clip-path-polygon {
-          clip-path: polygon(0 0, 100% 0, 0 100%);
-        }
-
-        .clip-path-polygon-2 {
-          clip-path: polygon(0 100%, 100% 100%, 0 0);
-        }
-      `}</style>
     </section>
   );
 };
