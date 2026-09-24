@@ -12,7 +12,16 @@ const TimelineItem = ({ year, title, company, description, type, index }) => {
       animation="fadeUp"
       delay={index * 0.15}
       duration={0.6}
-      className="relative pl-12 pb-8 border-l border-gray-700/50 last:pb-0"
+      className="
+        relative
+        pl-9
+        sm:pl-12
+        pb-8
+        sm:pb-10
+        border-l
+        border-gray-700/50
+        last:pb-0
+      "
     >
       {/* Icon Circle */}
       <Motion
@@ -20,27 +29,47 @@ const TimelineItem = ({ year, title, company, description, type, index }) => {
         delay={index * 0.15 + 0.15}
         duration={0.4}
         className="
-          absolute -left-5 top-0
-          w-10 h-10
+          absolute
+          -left-4
+          sm:-left-5
+          top-0
+          w-8
+          h-8
+          sm:w-10
+          sm:h-10
           rounded-full
           bg-blue-500
-          flex items-center
+          flex
+          items-center
           justify-center
           shadow-lg
           shadow-blue-500/30
         "
       >
-        <Icon className="text-white text-lg" />
+        <Icon className="text-white text-sm sm:text-lg" />
       </Motion>
 
       {/* Item Content */}
-      <div className="bg-gray-800 p-6 rounded-lg transition duration-300 hover:bg-gray-700/50">
+      <div
+        className="
+          bg-gray-800
+          p-4
+          sm:p-5
+          md:p-6
+          rounded-lg
+          transition
+          duration-300
+          hover:bg-gray-700/50
+        "
+      >
         {/* Year Badge */}
         <span
           className="
             inline-block
-            px-3 py-1
-            text-xs
+            px-3
+            py-1
+            text-[10px]
+            sm:text-xs
             font-semibold
             uppercase
             tracking-wider
@@ -54,13 +83,32 @@ const TimelineItem = ({ year, title, company, description, type, index }) => {
         </span>
 
         {/* Title and Company */}
-        <h4 className="text-xl font-bold uppercase text-white mb-2">
+        <h4
+          className="
+            text-base
+            sm:text-lg
+            md:text-xl
+            font-bold
+            uppercase
+            text-white
+            mb-2
+            leading-snug
+          "
+        >
           {title} —{" "}
           <span className="text-white/70 font-semibold">{company}</span>
         </h4>
 
         {/* Description */}
-        <p className="text-sm font-light text-white/80 leading-relaxed">
+        <p
+          className="
+            text-xs
+            sm:text-sm
+            font-light
+            text-white/80
+            leading-relaxed
+          "
+        >
           {description}
         </p>
       </div>
@@ -79,51 +127,131 @@ const ExperienceEducation = () => {
   );
 
   return (
-    <section className="bg-gray-900 text-white p-4 md:p-12 lg:p-14">
-      {/* Title */}
+    <section
+      className="
+        bg-gray-900
+        text-white
+        px-4
+        sm:px-6
+        md:px-10
+        lg:px-14
+        py-12
+        sm:py-16
+        md:py-20
+        overflow-hidden
+      "
+    >
+      {/* ================= TITLE ================= */}
       <Motion
         animation="fadeUp"
         duration={0.7}
-        className="relative text-center mb-16 pt-8"
+        className="
+          relative
+          text-center
+          mb-12
+          sm:mb-16
+          md:mb-20
+          pt-4
+          sm:pt-8
+        "
       >
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <h2 className="text-4xl md:text-5xl font-extrabold uppercase flex items-center whitespace-nowrap">
+        <div
+          className="
+            absolute
+            top-1/2
+            left-1/2
+            -translate-x-1/2
+            -translate-y-1/2
+            w-full
+            px-2
+          "
+        >
+          <h2
+            className="
+              text-2xl
+              sm:text-3xl
+              md:text-4xl
+              lg:text-5xl
+              font-extrabold
+              uppercase
+              flex
+              flex-col
+              sm:flex-row
+              items-center
+              justify-center
+              leading-tight
+            "
+          >
             <span className="text-white">EXPERIENCE</span>
-            <span className="text-blue-500 ml-3">& EDUCATION</span>
+
+            <span className="text-blue-500 sm:ml-3">& EDUCATION</span>
           </h2>
         </div>
       </Motion>
 
-      {/* Timeline Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 max-w-6xl mx-auto">
-        {/* Experience */}
+      {/* ================= TIMELINE GRID ================= */}
+      <div
+        className="
+          grid
+          grid-cols-1
+          lg:grid-cols-2
+          gap-12
+          lg:gap-x-12
+          lg:gap-y-16
+          max-w-6xl
+          mx-auto
+        "
+      >
+        {/* ================= EXPERIENCE ================= */}
         <div>
           <Motion
             animation="fadeLeft"
             duration={0.6}
-            className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 hidden lg:block"
+            className="
+              text-2xl
+              sm:text-3xl
+              font-bold
+              text-white
+              mb-8
+              border-b
+              border-blue-500
+              pb-2
+              hidden
+              lg:block
+            "
           >
             Experience
           </Motion>
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             {experienceItems.map((item, index) => (
               <TimelineItem key={index} {...item} index={index} />
             ))}
           </div>
         </div>
 
-        {/* Education */}
+        {/* ================= EDUCATION ================= */}
         <div>
           <Motion
             animation="fadeRight"
             duration={0.6}
-            className="text-3xl font-bold text-white mb-8 border-b border-blue-500 pb-2 mt-16 lg:mt-0 hidden lg:block"
+            className="
+              text-2xl
+              sm:text-3xl
+              font-bold
+              text-white
+              mb-8
+              border-b
+              border-blue-500
+              pb-2
+              hidden
+              lg:block
+            "
           >
             Education
           </Motion>
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
             {educationItems.map((item, index) => (
               <TimelineItem key={index} {...item} index={index} />
             ))}

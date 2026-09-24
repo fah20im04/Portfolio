@@ -79,26 +79,81 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed right-6 top-1/2 -translate-y-1/2 flex flex-col gap-5 z-50">
+    <div
+      className="
+        fixed
+        z-50
+        flex
+        items-center
+        justify-center
+
+        bottom-4
+        left-1/2
+        -translate-x-1/2
+        w-[calc(100%-2rem)]
+        max-w-md
+        gap-2
+        rounded-full
+        bg-neutral-900/95
+        p-2
+        shadow-2xl
+        backdrop-blur-md
+
+        sm:bottom-5
+        sm:w-auto
+        sm:max-w-none
+        sm:gap-3
+
+        md:right-6
+        md:top-1/2
+        md:bottom-auto
+        md:left-auto
+        md:w-auto
+        md:-translate-y-1/2
+        md:translate-x-0
+        md:flex-col
+        md:gap-5
+        md:rounded-none
+        md:bg-transparent
+        md:p-0
+        md:shadow-none
+        md:backdrop-blur-none
+      "
+    >
       {navItems.map((item) => {
         const Icon = item.icon;
         const isActive = activeSection === item.id;
 
         return (
-          <div key={item.id} className="relative w-44 h-12">
+          <div
+            key={item.id}
+            className="
+              relative
+              h-11
+              w-full
+              sm:h-12
+              sm:w-12
+              md:h-12
+              md:w-44
+            "
+          >
             {/* Water droplet active background */}
             {isActive && (
               <motion.div
                 layoutId="activeDroplet"
                 className="
                   absolute
-                  right-0
-                  top-0
-                  h-12
-                  w-12
+                  inset-0
+                  h-11
+                  w-full
                   rounded-full
                   bg-blue-500
-                  z-0
+                  sm:h-12
+                  sm:w-12
+                  md:right-0
+                  md:left-auto
+                  md:h-12
+                  md:w-12
                 "
                 transition={{
                   type: "spring",
@@ -113,24 +168,31 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => handleScroll(item.id)}
+              aria-label={`Go to ${item.label.toLowerCase()} section`}
               className="
                 group
                 absolute
-                right-0
-                top-0
-                h-12
-                w-12
-                hover:w-44
+                inset-0
+                h-11
+                w-full
                 rounded-full
                 flex
                 items-center
-                transition-all
-                duration-300
-                ease-in-out
+                justify-center
                 overflow-hidden
                 cursor-pointer
                 shadow-lg
-                z-10
+                transition-all
+                duration-300
+                ease-in-out
+                sm:h-12
+                sm:w-12
+                md:right-0
+                md:left-auto
+                md:h-12
+                md:w-12
+                md:justify-start
+                md:hover:w-44
               "
             >
               {/* Background */}
@@ -154,15 +216,18 @@ const Navbar = () => {
                 className={`
                   relative
                   z-10
-                  w-12
-                  h-12
                   flex
+                  h-11
+                  w-11
+                  flex-shrink-0
                   items-center
                   justify-center
-                  text-2xl
-                  flex-shrink-0
+                  text-xl
                   transition-colors
                   duration-300
+                  sm:h-12
+                  sm:w-12
+                  sm:text-2xl
                   ${
                     isActive
                       ? "text-black"
@@ -173,20 +238,22 @@ const Navbar = () => {
                 <Icon />
               </div>
 
-              {/* Text */}
+              {/* Text - hidden on mobile, shown on desktop hover */}
               <span
                 className="
                   relative
                   z-10
+                  hidden
                   ml-5
                   text-black
                   font-bold
                   tracking-wide
+                  whitespace-nowrap
                   opacity-0
-                  group-hover:opacity-100
                   transition-all
                   duration-300
-                  whitespace-nowrap
+                  md:block
+                  md:group-hover:opacity-100
                 "
               >
                 {item.label}
