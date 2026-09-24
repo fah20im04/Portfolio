@@ -4,12 +4,13 @@ import fahim from "../../assets/fahim.png";
 import Navbar from "./Navbar/Navbar";
 import About from "../About/About.jsx";
 import Motion from "../reusable/Motion.jsx";
+import { FaArrowDown } from "react-icons/fa";
 
 const Home = () => {
   const [openAbout, setOpenAbout] = useState(false);
 
   return (
-    <section className="min-h-screen bg-neutral-950 text-white relative overflow-hidden">
+    <section className="min-h-screen bg-gray-900 text-white relative overflow-hidden">
       <Motion
         animation="easeInOut"
         className="absolute top-0 left-0 w-64 h-64 bg-blue-500 -z-0 clip-path-polygon"
@@ -70,15 +71,12 @@ const Home = () => {
 
           {/* Button */}
           <Motion animation="fadeUp" delay={0.45} duration={0.7}>
-            <button
-              onClick={() => setOpenAbout(true)}
-              className="group inline-flex items-center gap-4 bg-blue-500 text-black font-semibold px-6 py-3 rounded-full hover:bg-blue-400 transition"
-            >
+            <div className="group inline-flex items-center gap-4 bg-blue-500 text-black font-semibold px-6 py-3 rounded-full hover:bg-blue-400 transition">
               More About Me
               <span className="w-10 h-10 rounded-full bg-black text-blue-500 flex items-center justify-center group-hover:translate-x-1 transition">
-                →
+                <FaArrowDown />
               </span>
-            </button>
+            </div>
           </Motion>
         </div>
       </div>
@@ -96,37 +94,6 @@ const Home = () => {
           clip-path: polygon(0 100%, 100% 100%, 0 0);
         }
       `}</style>
-
-      {/* About Modal */}
-      <AnimatePresence>
-        {openAbout && (
-          <Motion
-            animation="fade"
-            duration={0.3}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center"
-          >
-            {/* Modal Container */}
-            <Motion
-              animation="scaleUp"
-              duration={0.4}
-              className="relative w-full h-full md:h-auto md:max-h-[90vh] md:w-[90%] lg:w-[80%] bg-neutral-900 rounded-none md:rounded-2xl overflow-y-auto"
-            >
-              {/* Close Button */}
-              <button
-                onClick={() => setOpenAbout(false)}
-                className="fixed md:absolute top-4 right-4 z-50 text-white text-2xl hover:text-red-400 transition"
-              >
-                ✕
-              </button>
-
-              {/* About Content */}
-              <div className="w-full min-h-screen md:min-h-0">
-                <About />
-              </div>
-            </Motion>
-          </Motion>
-        )}
-      </AnimatePresence>
     </section>
   );
 };

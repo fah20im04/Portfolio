@@ -113,7 +113,7 @@ const About = () => {
       </main>
 
       {/* skill and exp */}
-      <section>
+      {/* <section>
         <Motion animation="fadeUp" duration={0.7}>
           <MySkills />
         </Motion>
@@ -121,7 +121,7 @@ const About = () => {
         <Motion animation="fadeUp" duration={0.7}>
           <ExperienceEducation />
         </Motion>
-      </section>
+      </section> */}
     </section>
   );
 };

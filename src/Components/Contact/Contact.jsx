@@ -56,34 +56,10 @@ const SocialMediaLinks = () => {
           const Icon = link.icon;
 
           return (
-            <motion.a
+            <Motion
               key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              title={link.title}
-              initial={{
-                opacity: 0,
-                scale: 0.5,
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.1,
-              }}
-              whileHover={{
-                scale: 1.15,
-                y: -3,
-              }}
-              whileTap={{
-                scale: 0.9,
-              }}
+              animation="fadeUp"
+              delay={0.4 + index * 0.1}
               className="
                 w-10
                 h-10
@@ -103,7 +79,7 @@ const SocialMediaLinks = () => {
               "
             >
               <Icon />
-            </motion.a>
+            </Motion>
           );
         })}
       </div>
